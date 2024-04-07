@@ -30,7 +30,7 @@ async function start() {
         type: 'http',
         in: 'Header',
       },
-      'client-access-token',
+      'access-token',
     )
     .addBearerAuth(
       {
@@ -41,18 +41,7 @@ async function start() {
         type: 'http',
         in: 'Header',
       },
-      'producer-access-token',
-    )
-    .addBearerAuth(
-      {
-        description: `Please enter token in following format: Bearer <JWT>`,
-        name: 'Authorization',
-        bearerFormat: 'Bearer',
-        scheme: 'Bearer',
-        type: 'http',
-        in: 'Header',
-      },
-      'worker-access-token',
+      'worker-token',
     )
     .build();
 

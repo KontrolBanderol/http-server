@@ -6,6 +6,7 @@ import { EmailModel } from 'src/models/email.model';
 import { MetaModel } from 'src/models/meta.model';
 import { UserModel } from 'src/models/users.model';
 import { AuthModule } from 'src/auth/auth.module';
+import { ProducerModule } from './producer/producer.module';
 
 @Module({
   providers: [UsersService],
@@ -17,6 +18,7 @@ import { AuthModule } from 'src/auth/auth.module';
       UserModel,
     ]),
     forwardRef(() => AuthModule),
+    forwardRef(() => ProducerModule),
   ],
   exports: [
     UsersService,

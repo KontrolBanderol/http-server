@@ -127,6 +127,7 @@ export class AuthService {
             id: userModel.id,
             username: userModel.meta.name,
             fullname: userModel.fullname,
+            verified: userModel.verified,
         };
 
         return this.jwtService.sign(payload, { expiresIn: '30m', });

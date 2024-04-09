@@ -43,6 +43,17 @@ async function start() {
       },
       'worker-token',
     )
+    .addBearerAuth(
+      {
+        description: `Please enter token in following format: Bearer <JWT>`,
+        name: 'Authorization',
+        bearerFormat: 'Bearer',
+        scheme: 'Bearer',
+        type: 'http',
+        in: 'Header',
+      },
+      'admin-token',
+    )
     .build();
 
   const document = SwaggerModule.createDocument(app, config);

@@ -61,4 +61,22 @@ export class SessionsService {
                 result: null,
             }
     }
+
+    async deleteOldSessions(): Promise<void> {
+        try {
+          const expirationPeriod = 30;
+          const expirationDate = new Date();
+          expirationDate.setDate(expirationDate.getDate() - expirationPeriod);
+          const deletedCount = await this.sessionsRepository
+            .createQueryBuilder()
+            .delete()
+            .from(SessionModel)
+            .where('lastActivity < :expirationDate', { expirationDate })
+            .execute();
+    
+          console.log(`Deleted ${deletedCount.affected} old sessions.`);
+        } catch (error) {
+          console.error('Error deleting old sessions:', error);
+        }
+      }
 }

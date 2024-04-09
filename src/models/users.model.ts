@@ -13,6 +13,8 @@ import {
 import { EmailModel } from './email.model';
 import { SessionModel } from './sessions.model';
 import { MetaModel } from './meta.model';
+import { StorageModel } from './storages.model';
+import { ProductModel } from './products.model';
 
 @Entity({ name: 'users' })
 export class UserModel extends BaseEntity {
@@ -68,6 +70,12 @@ export class UserModel extends BaseEntity {
   @OneToOne(() => EmailModel)
   @JoinColumn()
   public email: EmailModel;
+
+  @OneToMany(() => StorageModel, storage => storage.user)
+  storages: StorageModel[];
+
+  @OneToMany(() => ProductModel, product => product.user)
+  products: ProductModel[];
 
   @OneToMany(() => SessionModel, (session) => session.user, {
     onDelete: 'CASCADE',

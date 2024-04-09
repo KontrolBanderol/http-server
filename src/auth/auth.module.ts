@@ -23,6 +23,9 @@ import { TokensModule } from 'src/tokens/tokens.module';
       inject: [ConfigService],
     }),
     TokensModule,
+  ],
+  exports: [
+    JwtModule,
   ]
 })
 export class AuthModule {}

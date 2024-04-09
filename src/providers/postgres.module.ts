@@ -6,6 +6,11 @@ import { UserModel } from 'src/models/users.model';
 import { SessionModel } from 'src/models/sessions.model';
 import { MetaModel } from 'src/models/meta.model';
 import { TokenModel } from 'src/models/tokens.model';
+import { ProductModel } from 'src/models/products.model';
+import { ImageModel } from 'src/models/images.model';
+import { CategoryModel } from 'src/models/categories.model';
+import { CityModel } from 'src/models/cities.model';
+import { StorageModel } from 'src/models/storages.model';
 
 @Module({
   imports: [
@@ -26,6 +31,11 @@ import { TokenModel } from 'src/models/tokens.model';
             EmailModel,
             MetaModel,
             TokenModel,
+            ProductModel,
+            ImageModel,
+            CategoryModel,
+            CityModel,
+            StorageModel,
           ],
           autoLoadEntities: true,
           synchronize: true,
